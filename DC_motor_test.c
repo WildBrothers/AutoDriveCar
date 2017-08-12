@@ -23,7 +23,7 @@ int main()
 	printf("DC_motor TEST\n");
 
 	wiringPiSetup();
-	signal(SIGINT, INThander);
+	signal(SIGINT, INThandler);
 	
 	pinMode(MOTOR, OUTPUT);
 	pinMode(DIRECTION, OUTPUT);
@@ -40,7 +40,7 @@ int main()
 		usleep(1000*500);
 		
 		digitalWrite(DIRECTION, LOW);
-		digitalWRite(MOTOR, HIGH);
+		digitalWrite(MOTOR, HIGH);
 		usleep(1000*500);
 		digitalWrite(MOTOR, LOW);
 		usleep(1000*500);
