@@ -6,8 +6,6 @@
 #define MOTOR 1 //GPIO 18
 #define DIRECTION 3 // GPIO 22
 
-void INThandler(int);
-void init();
 void init()
 {
 	digitalWrite(MOTOR,LOW);
