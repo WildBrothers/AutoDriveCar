@@ -4,11 +4,21 @@
 #include <signal.h>
 
 #define MOTOR 1 //GPIO 18
-#define DIRECTIOn 3 // GPIO 22
+#define DIRECTION 3 // GPIO 22
 
 void INThandler(int);
 void init();
-
+void init()
+{
+	digitalWrite(MOTOR,LOW);
+	digitalWrite(DIRECTION,LOW);
+}
+void INThandler(int sig)
+{
+	printf("\ngoodbye\n");
+	init();
+	exit(0);
+}
 int main()
 {
 	printf("DC_motor TEST\n");
