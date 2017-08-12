@@ -11,7 +11,7 @@ void init();
 
 int main()
 {
-	printf("DC_motor TEST\n"):
+	printf("DC_motor TEST\n");
 
 	wiringPiSetup();
 	signal(SIGINT, INThander);
