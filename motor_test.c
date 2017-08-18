@@ -11,7 +11,7 @@
 void init() 
 {
 	pwmWrite(MOTOR, 0); //PWM 핀 사용 
-	digitalWrite(DIRECTIN, LOW); //디지털 출력하는 메소드
+	digitalWrite(DIRECTION, LOW); //디지털 출력하는 메소드
 }
 void INThandler(int sig)
 {
