@@ -39,7 +39,7 @@ int main()
 		usleep(1000*500);
 		
 		digitalWrite(DIRECTION, LOW);
-		digitalWRite(MOTOR, HIGH);
+		digitalWrite(MOTOR, HIGH);
 		usleep(1000*500);
 		digitalWrite(MOTOR, LOW);
 		usleep(1000*500);
