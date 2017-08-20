@@ -5,7 +5,7 @@
 #include <signal.h>
 
 # define MOTOR 1 // GPIO 18
-# define SERVO 2
+# define SERVO 1
 # define DIRECTION 3 // GPIO 22
 
 void init() 
