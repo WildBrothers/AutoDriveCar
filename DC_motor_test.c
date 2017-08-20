@@ -5,7 +5,6 @@
 
 #define MOTOR 1 //GPIO 18
 #define DIRECTION 3 // GPIO 22
-<<<<<<< HEAD
 
 void init()
 {
@@ -18,20 +17,7 @@ void INThandler(int sig)
 	init();
 	exit(0);
 }
-=======
->>>>>>> origin/hdw
 
-void init()
-{
-	digitalWrite(MOTOR,LOW);
-	digitalWrite(DIRECTION,LOW);
-}
-void INThandler(int sig)
-{
-	printf("\ngoodbye\n");
-	init();
-	exit(0);
-}
 int main()
 {
 	printf("DC_motor TEST\n");
@@ -59,4 +45,5 @@ int main()
 		digitalWrite(MOTOR, LOW);
 		usleep(1000*500);
 	}
+	return 0;
 }
