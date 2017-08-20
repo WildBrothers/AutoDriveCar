@@ -255,6 +255,8 @@ if __name__ == '__main__':
         # TEST
 
         # show the frame
+        cv2.imshow("origin", image)
+        cv2.imshow("Filtered", filtered_img)
         cv2.imshow("Line", line_image)
         # setting fps and wait user keyboard input
         # after that, masking result by dec 255
