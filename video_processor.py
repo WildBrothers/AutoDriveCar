@@ -27,6 +27,19 @@ def filter_colors(image):
     return image2
 
 
+def gaussian_blur(img, kernel_size):
+    """Applies a Gaussian Noise kernel"""
+    return cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)
+
+
+def grayscale(img):
+    """Applies the Grayscale transform
+	This will return an image with only one color channel
+	but NOTE: to see the returned image as grayscale
+	you should call plt.imshow(gray, cmap='gray')"""
+    return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+
 if __name__ == '__main__':
     camera = PiCamera()
     camera.resolution = (640, 480)
@@ -38,10 +51,16 @@ if __name__ == '__main__':
         # and occupied/unoccupied text
         image = frame.array
 
+        # TEST
         filtered_img = filter_colors(image)
+        gray_img = grayscale(filtered_img)
+        blur_img = gaussian_blur(gray_img, kernel_size=3)
+        # TEST
 
         # show the frame
-        cv2.imshow("Frame", filtered_img)
+        cv2.imshow("Filter", filtered_img)
+        cv2.imshow("Gray", gray_img)
+        cv2.imshow("Blur", blur_img)
         # setting fps and wait user keyboard input
         # after that, masking result by dec 255
         key = cv2.waitKey(1) & 0xFF
