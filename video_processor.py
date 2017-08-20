@@ -33,11 +33,10 @@ def hough_lines(img, rho, theta, threshold, min_line_len, max_line_gap):
     """
     lines = cv2.HoughLinesP(img, rho, theta, threshold, np.array([]), minLineLength=min_line_len,
                             maxLineGap=max_line_gap)
-    print img.shape
-    # line_img = np.zeros((*img.shape, 3), dtype=np.uint8)  # 3-channel RGB image
-    # draw_lines(line_img, lines)
-    # return line_img
-    return  None
+    line_img = np.zeros((640, 480, 3), dtype=np.uint8)  # 3-channel RGB image
+    draw_lines(line_img, lines)
+    return line_img
+
 
 # extract white and yellow from image
 def filter_colors(image):
