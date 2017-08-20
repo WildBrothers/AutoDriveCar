@@ -250,6 +250,7 @@ if __name__ == '__main__':
             (imshape[1] - (imshape[1] * (1 - trap_top_width)) // 2, imshape[0] - imshape[0] * trap_height), \
             (imshape[1] - (imshape[1] * (1 - trap_bottom_width)) // 2, imshape[0])]] \
             , dtype=np.int32)
+        print "vertices: " + vertices
         masked_edges = region_of_interest(edges, vertices)
         line_image = hough_lines(masked_edges, rho, theta, threshold, min_line_length, max_line_gap)
         # TEST
