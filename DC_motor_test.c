@@ -45,5 +45,4 @@ int main()
 		digitalWrite(MOTOR, LOW);
 		usleep(1000*500);
 	}
-	return 0;
 }
