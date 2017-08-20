@@ -6,6 +6,11 @@ import cv2
 import numpy as np
 
 
+# Canny Edge Detector
+low_threshold = 50
+high_threshold = 150
+
+
 # extract white and yellow from image
 def filter_colors(image):
     white_threshold = 200  # 130
@@ -40,6 +45,11 @@ def grayscale(img):
     return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 
+def canny(img, low_threshold, high_threshold):
+    """Applies the Canny transform"""
+    return cv2.Canny(img, low_threshold, high_threshold)
+
+
 if __name__ == '__main__':
     camera = PiCamera()
     camera.resolution = (640, 480)
@@ -55,12 +65,11 @@ if __name__ == '__main__':
         filtered_img = filter_colors(image)
         gray_img = grayscale(filtered_img)
         blur_img = gaussian_blur(gray_img, kernel_size=3)
+        canny_img = canny(blur_img, low_threshold, high_threshold)
         # TEST
 
         # show the frame
-        cv2.imshow("Filter", filtered_img)
-        cv2.imshow("Gray", gray_img)
-        cv2.imshow("Blur", blur_img)
+        cv2.imshow("Canny", canny_img)
         # setting fps and wait user keyboard input
         # after that, masking result by dec 255
         key = cv2.waitKey(1) & 0xFF
