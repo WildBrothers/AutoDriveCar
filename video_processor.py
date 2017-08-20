@@ -5,6 +5,8 @@ import time
 import cv2
 import numpy as np
 
+vertices = np.array([[]])
+
 
 # Canny Edge Detector
 low_threshold = 50
@@ -13,9 +15,10 @@ high_threshold = 150
 # Region-of-interest vertices
 # We want a trapezoid shape, with bottom edge at the bottom of the image
 trap_bottom_width = 0.85  # width of bottom edge of trapezoid, expressed as percentage of image width
-trap_top_width = 0.07  # ditto for top edge of trapezoid
-trap_height = 0.4  # height of the trapezoid expressed as percentage of image height
-
+# trap_top_width = 0.07  # ditto for top edge of trapezoid
+trap_top_width = 0,85
+# trap_height = 0.4  # height of the trapezoid expressed as percentage of image height
+trap_height = 1.0
 
 # Hough Transform
 rho = 2 # distance resolution in pixels of the Hough grid
@@ -250,11 +253,14 @@ if __name__ == '__main__':
             (imshape[1] - (imshape[1] * (1 - trap_top_width)) // 2, imshape[0] - imshape[0] * trap_height), \
             (imshape[1] - (imshape[1] * (1 - trap_bottom_width)) // 2, imshape[0])]] \
             , dtype=np.int32)
+        print "vertices: "
         masked_edges = region_of_interest(edges, vertices)
         line_image = hough_lines(masked_edges, rho, theta, threshold, min_line_length, max_line_gap)
         # TEST
 
         # show the frame
+        cv2.imshow("origin", image)
+        cv2.imshow("Filtered", filtered_img)
         cv2.imshow("Line", line_image)
         # setting fps and wait user keyboard input
         # after that, masking result by dec 255
