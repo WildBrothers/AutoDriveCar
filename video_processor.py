@@ -16,7 +16,7 @@ high_threshold = 150
 # We want a trapezoid shape, with bottom edge at the bottom of the image
 trap_bottom_width = 0.85  # width of bottom edge of trapezoid, expressed as percentage of image width
 # trap_top_width = 0.07  # ditto for top edge of trapezoid
-trap_top_width = 0,85
+trap_top_width = 0.85
 # trap_height = 0.4  # height of the trapezoid expressed as percentage of image height
 trap_height = 1.0
 
