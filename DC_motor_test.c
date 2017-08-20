@@ -8,7 +8,7 @@
 
 void init()
 {
-	pwmWrite(MOTOR, 0);
+	digitalWrite(MOTOR, LOW);
 	digitalWrite(DIRECTION, LOW);
 }
 void INThandler(int sig)
